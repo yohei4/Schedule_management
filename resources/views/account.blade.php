@@ -17,7 +17,17 @@
             <div class="form-title">
                 <h2>新規アカウント作成</h2>
             </div>
-            <form action="" id="create-account">
+            @if($errors->has('name'))
+            <p class="error">※{{ $errors->first('name') }}</p>
+            @endif
+            @if($errors->has('email'))
+            <p class="error">※{{ $errors->first('email') }}</p>
+            @endif
+            @if($errors->has('password'))
+            <p class="error">※{{ $errors->first('password') }}</p>
+            @endif
+            <form action="{{ route('user.store') }}" id="create-account" method="POST">
+            @csrf
                 <div class="name-outer">
                         <p><label for="name">名前</label></p>
                         <div class="input-wrap">
@@ -49,10 +59,6 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="copyright-wrap">
-            <p>Copyright&copy;2021~ チームa All Rights Reserved.</p>
-        </div>
-    </footer>
+    @include('footer')
 </body>
 </html>

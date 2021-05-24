@@ -103,6 +103,10 @@ main #create-account .button button:hover {
   transition: all .3s;
 }
 
+.error {
+  color: red;
+}
+
 footer {
   width: 100%;
   padding: 60px 0;

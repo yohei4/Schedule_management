@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//アカウント作成画面表示
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('account');
+})->name('account');
+
+//アカウント作成
+Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
+
+
