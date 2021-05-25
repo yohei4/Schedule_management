@@ -18,6 +18,6 @@ class UserController extends Controller
             \DB::rollback();
             abort(500);
         }
-        return redirect(route('account'));
+        return redirect(route('Schedule_management.account'));
     }
 }

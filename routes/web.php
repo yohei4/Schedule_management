@@ -15,10 +15,16 @@ use App\Http\Controllers\UserController;
 
 //アカウント作成画面表示
 Route::get('/', function () {
-    return view('account');
+    return view('Schedule_management.account');
 })->name('account');
 
 //アカウント作成
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
 
+// Auth::routes();
 
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('account');
