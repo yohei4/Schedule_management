@@ -13,8 +13,20 @@ use App\Http\Controllers\UserController;
 |
 */
 
+//ログイン画面表示
+Route::get('/', [UserController::class,'showLogin'])->name('showLogin');
+
+//ログインの処理
+Route::post('login',[UserController::class, 'login'])->name('login');
+
+//ホーム画面
+Route::get('home', function() {
+    return view('home');
+})->name('home');
+
+
 //アカウント作成画面表示
-Route::get('/', function () {
+Route::get('account', function () {
     return view('account');
 })->name('account');
 

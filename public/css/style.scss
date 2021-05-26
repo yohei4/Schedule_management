@@ -69,6 +69,12 @@ main {
                     left: 90%;
                     transform: translateY(-50%);
                 }
+                & i_right {
+                  position: absolute;
+                  top: 50%;
+                  right: 90%;
+                  transform: translateY(-50%);
+              }
             }
         }
         & .button {
@@ -92,6 +98,11 @@ main {
         }
     }
 }
+
+input::placeholder {
+  position: relative;
+  left: 28px;
+  }
 
 .error {
     color: red;

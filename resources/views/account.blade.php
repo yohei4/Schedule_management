@@ -10,6 +10,11 @@
 </head>
 <body>
     <main>
+        @if (session('login_success'))
+        <div>
+            {{ session('login_success') }}
+        </div>
+        @endif
         <div class="screen-title__wrap">
             <h1 class="title">新規アカウント作成画面</h1>
         </div>
@@ -55,7 +60,7 @@
                 </div>
             </form>
             <div class="login-page__move">
-                <p>ログインの方は<a href="#">こちら</a></p>
+                <p>ログインの方は<a href="{{ route('showLogin') }}">こちら</a></p>
             </div>
         </div>
     </main>

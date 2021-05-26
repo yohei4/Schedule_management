@@ -79,6 +79,14 @@ main #create-account div[class$="outer"] .input-wrap i {
           transform: translateY(-50%);
 }
 
+main #create-account div[class$="outer"] .input-wrap i_right {
+  position: absolute;
+  top: 50%;
+  right: 90%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
 main #create-account .button {
   margin-bottom: 20px;
   margin-top: 30px;
@@ -101,6 +109,26 @@ main #create-account .button button:hover {
   background-color: #3fa2b8;
   -webkit-transition: all .3s;
   transition: all .3s;
+}
+
+input::-webkit-input-placeholder {
+  position: relative;
+  left: 28px;
+}
+
+input:-ms-input-placeholder {
+  position: relative;
+  left: 28px;
+}
+
+input::-ms-input-placeholder {
+  position: relative;
+  left: 28px;
+}
+
+input::placeholder {
+  position: relative;
+  left: 28px;
 }
 
 .error {
