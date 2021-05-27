@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main>
+    <main id="account-page">
         <div class="screen-title__wrap">
             <h1 class="title">新規アカウント作成画面</h1>
         </div>
@@ -50,18 +50,18 @@
                     </div>
                     <p>※パスワードは6文字以上</p>
                 </div>
-                <div class="button">
+                <div class="ac-login_button">
                     <button type="submit" form="create-account">
                         <span>アカウント作成</span>
                     </button>
                 </div>
             </form>
             <div class="login-page__move">
-                <p>ログインの方は<a href="#">こちら</a></p>
+                <p>ログインの方は<a href="{{ route('showLogin') }}">こちら</a></p>
             </div>
         </div>
     </main>
-    @include('Schedule_management.footer')
+    @include('schedule_management.footer')
     <script src="./js/password_view.js"></script>
 </body>
 </html>

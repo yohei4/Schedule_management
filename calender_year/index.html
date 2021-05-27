@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー(年)</title>
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="side-bar">
+            <div id="group-name">
+                <h2>グループ名</h2>
+                <div class="arrow"></div>
+            </div>
+            <ul id="menu">
+                <li class="menu-item"><button>カレンダー</button></li>
+                <li class="menu-item"><button>グループ一覧</button></li>
+                <li class="menu-item"><button>ユーザー名</button></li>    
+            </ul>
+        </aside>
+        <main id="calender">
+            <div id="header">
+                <div id="new_event__btn">
+                    <P>新規イベントの作成</P>
+                    <div class="plus-icon"></div>
+                </div>
+                <div id="calender-change__btn__border">
+                    <div class="btn-wrapper">
+                        <button id="day_btn" class="calender-change__btn">日</button>
+                        <button id="week_btn" class="calender-change__btn">週</button>
+                        <button id="month_btn" class="calender-change__btn">月</button>
+                        <button id="year_btn" class="calender-change__btn">年</button>
+                    </div>
+                </div>
+                <div id="search">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <form id="search-form" action="" method="GET">
+                        <input class="search-text" type="search" placeholder="検索">
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/main.js"></script>
+</body>
+</html>
