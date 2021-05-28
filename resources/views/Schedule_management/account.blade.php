@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新規アカウント作成</title>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <!-- <link href="/css/app.css" rel="stylesheet"> -->
+    <!-- <script src="/js/app.js"></script> -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <main>
+    <main id="account-page">
         <div class="screen-title__wrap">
             <h1 class="title">新規アカウント作成画面</h1>
         </div>
@@ -44,21 +46,22 @@
                     <p><label for="password">パスワード</label></p>
                     <div class="input-wrap">
                         <input id="password" name="password" type="password">
-                        <i class="fas fa-eye"></i>
+                        <button id="password-view__btn"><i class="fas fa-eye"></i></button>
                     </div>
                     <p>※パスワードは6文字以上</p>
                 </div>
-                <div class="button">
+                <div class="ac-login_button">
                     <button type="submit" form="create-account">
                         <span>アカウント作成</span>
                     </button>
                 </div>
             </form>
             <div class="login-page__move">
-                <p>ログインの方は<a href="#">こちら</a></p>
+                <p>ログインの方は<a href="{{ route('showLogin') }}">こちら</a></p>
             </div>
         </div>
     </main>
-    @include('footer')
+    @include('schedule_management.footer')
+    <script src="./js/password_view.js"></script>
 </body>
 </html>

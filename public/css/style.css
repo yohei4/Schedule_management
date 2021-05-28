@@ -2,6 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #F0F0F0;
   text-align: center;
+  overflow: hidden;
 }
 
 * {
@@ -11,19 +12,24 @@ body {
   letter-spacing: 0px;
 }
 
-main {
-  margin-top: 150px;
+.error {
+  font-size: 14px;
+  color: red;
 }
 
-main .screen-title__wrap {
+#account-page {
+  margin-top: 110px;
+}
+
+#account-page .screen-title__wrap {
   margin-bottom: 46px;
 }
 
-main .screen-title__wrap .title {
+#account-page .screen-title__wrap .title {
   font-size: 27px;
 }
 
-main .create-account__wrap {
+#account-page .create-account__wrap {
   background-color: #FFFFFF;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -31,39 +37,39 @@ main .create-account__wrap {
   width: 571px;
 }
 
-main .create-account__wrap .form-title h2 {
+#account-page .create-account__wrap .form-title h2 {
   font-size: 24px;
 }
 
-main #create-account {
-  margin-top: 33px;
+#account-page #create-account {
+  margin-top: 20px;
 }
 
-main #create-account div[class$="outer"] {
+#account-page #create-account div[class$="outer"] {
   margin: 0 auto 20px;
   width: 291px;
 }
 
-main #create-account div[class$="outer"] p {
+#account-page #create-account div[class$="outer"] p {
   text-align: left;
 }
 
-main #create-account div[class$="outer"] p:not(:last-child) {
+#account-page #create-account div[class$="outer"] p:not(:last-child) {
   font-size: 14px;
   border-bottom: solid 1px #000;
   margin-bottom: 10px;
 }
 
-main #create-account div[class$="outer"] p:last-child {
+#account-page #create-account div[class$="outer"] p:last-child {
   font-size: 12px;
   color: #A8A8A8;
 }
 
-main #create-account div[class$="outer"] .input-wrap {
+#account-page #create-account div[class$="outer"] .input-wrap {
   position: relative;
 }
 
-main #create-account div[class$="outer"] .input-wrap input {
+#account-page #create-account div[class$="outer"] .input-wrap input {
   background-color: #EDEDED;
   border: 1px solid #C3C3C3;
   width: 96%;
@@ -71,7 +77,67 @@ main #create-account div[class$="outer"] .input-wrap input {
   padding-left: 10px;
 }
 
-main #create-account div[class$="outer"] .input-wrap i {
+#login-page {
+  margin-top: 150px;
+}
+
+#login-page .screen-title__wrap {
+  margin-bottom: 46px;
+}
+
+#login-page .screen-title__wrap .title {
+  font-size: 27px;
+}
+
+#login-page .create-account__wrap {
+  background-color: #FFFFFF;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 0 auto auto;
+  width: 571px;
+}
+
+#login-page .create-account__wrap .form-title h2 {
+  font-size: 24px;
+}
+
+#login-page form {
+  margin-top: 33px;
+}
+
+#login-page form div[class$="outer"] {
+  margin: 0 auto 20px;
+  width: 291px;
+}
+
+#login-page form div[class$="outer"] p {
+  text-align: left;
+}
+
+#login-page form div[class$="outer"] p:not(:last-child) {
+  font-size: 14px;
+  border-bottom: solid 1px #000;
+  margin-bottom: 10px;
+}
+
+#login-page form div[class$="outer"] p:last-child {
+  font-size: 12px;
+  color: #A8A8A8;
+}
+
+#login-page form div[class$="outer"] .input-wrap {
+  position: relative;
+}
+
+#login-page form div[class$="outer"] .input-wrap input {
+  background-color: #EDEDED;
+  border: 1px solid #C3C3C3;
+  width: 96%;
+  height: 31px;
+  padding-left: 10px;
+}
+
+#login-page form div[class$="outer"] .input-wrap i {
   position: absolute;
   top: 50%;
   left: 90%;
@@ -79,12 +145,20 @@ main #create-account div[class$="outer"] .input-wrap i {
           transform: translateY(-50%);
 }
 
-main #create-account .button {
+#login-page form div[class$="outer"] .input-wrap i_right {
+  position: absolute;
+  top: 50%;
+  right: 90%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.ac-login_button {
   margin-bottom: 20px;
   margin-top: 30px;
 }
 
-main #create-account .button button {
+.ac-login_button button {
   cursor: pointer;
   border: none;
   width: 334px;
@@ -97,14 +171,31 @@ main #create-account .button button {
   transition: all .3s;
 }
 
-main #create-account .button button:hover {
+.ac-login_button button:hover {
   background-color: #3fa2b8;
   -webkit-transition: all .3s;
   transition: all .3s;
 }
 
-.error {
-  color: red;
+#password-view__btn {
+  border: none;
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#password-view__btn.hide::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: #000;
+  top: 50%;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 footer {

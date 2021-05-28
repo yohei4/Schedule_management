@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +14,25 @@ use App\Http\Controllers\UserController;
 |
 */
 
+//ログイン画面表示
+Route::get('/', [UserController::class,'showLogin'])->name('showLogin');
+
+//ログインの処理
+Route::post('/user/login', [UserController::class, 'login'])->name('login');
+
+//ホーム画面
+Route::get('home', function() {
+    return view('schedule_management.home');
+})->name('home');
+
 //アカウント作成画面表示
-Route::get('/', function () {
-    return view('account');
+Route::get('account', function () {
+    return view('schedule_management.account');
 })->name('account');
 
 //アカウント作成
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
 
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
