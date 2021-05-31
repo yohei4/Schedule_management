@@ -6,6 +6,18 @@ body {
   margin: 0;
   padding: 0;
   line-break: 1em;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 .wrapper {
@@ -128,13 +140,13 @@ body {
   background: #fff;
 }
 
-.wrapper #calender {
+.wrapper #calendar {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
 }
 
-.wrapper #calender #header {
+.wrapper #calendar #header-outer #header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -149,7 +161,7 @@ body {
   background-color: #F4F4F4;
 }
 
-.wrapper #calender #header #new_event__btn {
+.wrapper #calendar #header-outer #header #new_event__btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,18 +171,18 @@ body {
   cursor: pointer;
 }
 
-.wrapper #calender #header #new_event__btn p {
+.wrapper #calendar #header-outer #header #new_event__btn p {
   width: 100%;
   font-size: 14px;
   color: #9A9A9A;
 }
 
-.wrapper #calender #header #new_event__btn .plus-icon {
+.wrapper #calendar #header-outer #header #new_event__btn .plus-icon {
   width: 20px;
   position: relative;
 }
 
-.wrapper #calender #header #new_event__btn .plus-icon::after {
+.wrapper #calendar #header-outer #header #new_event__btn .plus-icon::after {
   content: "";
   position: absolute;
   top: 45%;
@@ -183,7 +195,7 @@ body {
   background: #9A9A9A;
 }
 
-.wrapper #calender #header #new_event__btn .plus-icon::before {
+.wrapper #calendar #header-outer #header #new_event__btn .plus-icon::before {
   content: "";
   position: absolute;
   top: 45%;
@@ -196,23 +208,23 @@ body {
   background: #9A9A9A;
 }
 
-.wrapper #calender #header #new_event__btn:hover {
+.wrapper #calendar #header-outer #header #new_event__btn:hover {
   background: #e6e6e6;
 }
 
-.wrapper #calender #header #calender-change__btn__border {
+.wrapper #calendar #header-outer #header #calendar-change__btn__border {
   background: #fff;
   border: 1px solid #C1C1C1;
   border-radius: 4px;
 }
 
-.wrapper #calender #header #calender-change__btn__border .btn-wrapper {
+.wrapper #calendar #header-outer #header #calendar-change__btn__border .btn-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.wrapper #calender #header #calender-change__btn__border .btn-wrapper .calender-change__btn {
+.wrapper #calendar #header-outer #header #calendar-change__btn__border .btn-wrapper .calendar-change__btn {
   display: block;
   padding: 0 25px;
   color: #9A9A9A;
@@ -225,7 +237,7 @@ body {
   transition: all .5s;
 }
 
-.wrapper #calender #header #calender-change__btn__border .btn-wrapper .calender-change__btn:not(:last-child)::after {
+.wrapper #calendar #header-outer #header #calendar-change__btn__border .btn-wrapper .calendar-change__btn:not(:last-child)::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -237,13 +249,13 @@ body {
   background: #C1C1C1;
 }
 
-.wrapper #calender #header #calender-change__btn__border .btn-wrapper .calender-change__btn:hover {
+.wrapper #calendar #header-outer #header #calendar-change__btn__border .btn-wrapper .calendar-change__btn:hover {
   background: #e9e9e9;
   -webkit-transition: all .5s;
   transition: all .5s;
 }
 
-.wrapper #calender #header #search {
+.wrapper #calendar #header-outer #header #search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -256,39 +268,160 @@ body {
   margin-right: 20px;
 }
 
-.wrapper #calender #header #search .search-icon {
+.wrapper #calendar #header-outer #header #search .search-icon {
   margin-left: 5px;
   margin-right: 5px;
 }
 
-.wrapper #calender #header #search .search-icon i {
+.wrapper #calendar #header-outer #header #search .search-icon i {
   font-size: 14px;
   color: #C1C1C1;
 }
 
-.wrapper #calender #header #search #search-form .search-text {
+.wrapper #calendar #header-outer #header #search #search-form .search-text {
   border: none;
   background: inherit;
   padding: 4px 0;
 }
 
-.wrapper #calender #header #search #search-form .search-text:focus {
+.wrapper #calendar #header-outer #header #search #search-form .search-text:focus {
   outline: 0;
 }
 
-.wrapper #calender #header #search #search-form .search-text::-webkit-input-placeholder {
+.wrapper #calendar #header-outer #header #search #search-form .search-text::-webkit-input-placeholder {
   color: #C1C1C1;
 }
 
-.wrapper #calender #header #search #search-form .search-text:-ms-input-placeholder {
+.wrapper #calendar #header-outer #header #search #search-form .search-text:-ms-input-placeholder {
   color: #C1C1C1;
 }
 
-.wrapper #calender #header #search #search-form .search-text::-ms-input-placeholder {
+.wrapper #calendar #header-outer #header #search #search-form .search-text::-ms-input-placeholder {
   color: #C1C1C1;
 }
 
-.wrapper #calender #header #search #search-form .search-text::placeholder {
+.wrapper #calendar #header-outer #header #search #search-form .search-text::placeholder {
   color: #C1C1C1;
+}
+
+.calendar-view #year #calendar-header {
+  margin-top: 10px;
+  position: relative;
+}
+
+.calendar-view #year #calendar-header .calendar-title {
+  text-align: center;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination li {
+  -webkit-box-shadow: 0.4px 0.4px 1.5px #acacac;
+          box-shadow: 0.4px 0.4px 1.5px #acacac;
+  border-radius: 4px;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination li:not(:nth-child(2)) {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination li:nth-child(2) {
+  padding: 0 15px;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination li button {
+  background: #fff;
+  border: none;
+}
+
+.calendar-view #year #calendar-header #calendar-pagination .pagination li button a {
+  color: black;
+  line-height: 20px;
+}
+
+.calendar-view #year .calendar-main .months-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  row-gap: 15px;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container {
+  margin: 0 auto;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .month {
+  padding-left: 7px;
+  font-size: 21px;
+  color: #FF1D00;
+  font-weight: normal;
+  text-align: left;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .weeks {
+  margin-bottom: 5px;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .weeks .week {
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  color: #9D9D9D;
+  position: relative;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .weeks .week::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: #810707;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .days .day {
+  width: 45px;
+  height: 33px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 33px;
+}
+
+.today {
+  position: relative;
+  color: #fff;
+}
+
+.today::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-51%, -55%);
+          transform: translate(-51%, -55%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ff0000;
+  z-index: -1;
 }
 /*# sourceMappingURL=style.css.map */

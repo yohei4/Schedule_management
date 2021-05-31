@@ -15,7 +15,6 @@ class UserController extends Controller
     /**
      * @return View
      */
-    
     public function showLogin() 
     {
         return view('schedule_management.login');
@@ -55,7 +54,6 @@ class UserController extends Controller
 
     /**
      * 有効な登録後に新しいユーザーインスタンスを作成します。
-     *
      * @param  array  $data
      * @return \App\Models\User
      */
