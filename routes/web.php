@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -22,16 +23,18 @@ Route::post('/user/login', [UserController::class, 'login'])->name('login');
 
 //ホーム画面
 Route::get('home', function() {
-    return view('schedule_management.home');
+    return view('schedule_management.calendar.home');
 })->name('home');
 
 //アカウント作成画面表示
 Route::get('account', function () {
-    return view('schedule_management.account');
+    return view('schedule_management.login.account');
 })->name('account');
 
 //アカウント作成
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
+
+Route::get('home', [CalendarController::class, 'show'])->name('home');
 
 // Route::get('/', function () {
 //     return view('welcome');

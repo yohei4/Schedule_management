@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function showLogin() 
     {
-        return view('schedule_management.login');
+        return view('schedule_management.login.login');
     }
 
     public function login(LoginFormRequest $request) 
@@ -49,7 +49,7 @@ class UserController extends Controller
             \DB::rollback();
             abort(500);
         }
-        return redirect(route('account'));
+        return redirect(route('showLogin'));
     }
 
     /**

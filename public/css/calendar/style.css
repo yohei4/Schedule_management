@@ -374,19 +374,19 @@ a {
   text-align: left;
 }
 
-.calendar-view #year .calendar-main .months-container .month-container .weeks {
+.calendar-view #year .calendar-main .months-container .month-container .day-of-the-weeks {
   margin-bottom: 5px;
 }
 
-.calendar-view #year .calendar-main .months-container .month-container .weeks .week {
+.calendar-view #year .calendar-main .months-container .month-container .day-of-the-weeks th {
   text-align: center;
   font-size: 18px;
   font-weight: normal;
-  color: #9D9D9D;
+  color: #797979;
   position: relative;
 }
 
-.calendar-view #year .calendar-main .months-container .month-container .weeks .week::after {
+.calendar-view #year .calendar-main .months-container .month-container .day-of-the-weeks th::after {
   content: "";
   position: absolute;
   left: 50%;
@@ -398,12 +398,16 @@ a {
   background: #810707;
 }
 
-.calendar-view #year .calendar-main .months-container .month-container .days .day {
+.calendar-view #year .calendar-main .months-container .month-container .weeks td .day {
   width: 45px;
   height: 33px;
   text-align: center;
   font-size: 18px;
   line-height: 33px;
+}
+
+.calendar-view #year .calendar-main .months-container .month-container .weeks td.day-last-next__month .day {
+  color: #b6b6b6;
 }
 
 .today {
