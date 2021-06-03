@@ -25,6 +25,15 @@ Route::get('home', function() {
     return view('schedule_management.home');
 })->name('home');
 
+//スケジュール入力画面表示
+Route::get('schedule', function() {
+    return view('schedule_management.schedule');
+})->name('schedule');
+
+//スケジュール登録
+Route::post('/user/home', [UserController::class, 'home'])->name('user.home'); 
+
+
 //アカウント作成画面表示
 Route::get('account', function () {
     return view('schedule_management.account');
