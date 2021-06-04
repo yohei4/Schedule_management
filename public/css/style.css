@@ -360,7 +360,7 @@ body {
 #login-page form div[class$="outer"] .input-wrap i_right {
   position: absolute;
   top: 50%;
-  right: 90%;
+  right: 105%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }

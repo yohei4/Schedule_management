@@ -17,9 +17,9 @@ class CreateSchedulesTable extends Migration
             $table->id();
             $table->string('title',30);
             $table->text('place',30);
-            $table->time('endday');
-            $table->time('start');
-            $table->time('end');
+            $table->tinyInteger('checkbox')->default(0);
+            $table->daytime('start');
+            $table->daytime('end');
 
             $table->timestamps();
         });

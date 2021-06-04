@@ -9,20 +9,21 @@
 </head>
 <body>
   <div id="container">
-    <form action="home" id="submit" method="POST">
+    <form action="{{ route('home') }}" id="submit" method="POST">
+    @csrf
       <div class="modal">
           <input class="title" type="text" name="title" style="border:none" placeholder="新規イベント名">
           <input class="place" type="text" name="place" style="border:none" placeholder="場所を追加">
           <div class="underline"></div>
           <div class="center">
             <p class="endday"><span>終日：</span>
-              <input type="checkbox" name="endday">
+              <input type="checkbox" name="checkbox">
             </p>
             <p>開始：
-              <input type="date" name="start" value="2021-01-01"><input type="time" value="10:00">
+              <input type="date" name="start" value="2021-01-01"><input type="time"  name="start" value="10:00">
             </p>
             <p>終了：
-              <input type="date" name="end" value="2021-01-01"><input type="time" value="10:00">
+              <input type="date" name="end" value="2021-01-01"><input type="time" name="end" value="10:00">
             </p>
           </div>
           <div class="btn">

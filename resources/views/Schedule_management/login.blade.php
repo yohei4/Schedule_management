@@ -28,7 +28,7 @@
                 <div class="password-outer">
                     <div class="input-wrap">
                       <i_right class="fas fa-key"></i_right>
-                        <input id="password" name="password" type="password" placeholder="パスワード">
+                        <input id="password" name="password" type="password" class="font-awesome" placeholder="パスワード">
                         <i class="fas fa-eye"></i>
                     </div>
                 </div>

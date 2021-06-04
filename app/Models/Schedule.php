@@ -14,7 +14,7 @@ class Schedule extends Model
     protected $fillable = [
         'title',
         'place',
-        'endday',
+        'checkbox',
         'start',
         'end',
     ];

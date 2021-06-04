@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,8 @@ Route::get('schedule', function() {
 })->name('schedule');
 
 //スケジュール登録
-Route::post('/user/home', [UserController::class, 'home'])->name('user.home'); 
+Route::post('home', [ScheduleController::class, 'schedule_store'])->name('user.schedule_store'); 
+
 
 
 //アカウント作成画面表示
