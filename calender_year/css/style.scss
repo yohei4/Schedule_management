@@ -3,7 +3,7 @@
 //body
 body {
     font-family: Arial, Helvetica, sans-serif;
-    // overflow: hidden;
+    overflow: hidden;
 }
 
 //全て適用
@@ -122,11 +122,9 @@ a {
             }
         }
     }
-    & #calendar {
+    & #calendar-main {
         flex: 1;
         & #header-outer {
-            // position: fixed;
-            // width: 100%;
             & #header {
                 display: flex;
                 align-items: center;
@@ -247,6 +245,8 @@ a {
 //カレンダー部分
 .calendar-view {
     & #year {
+        overflow-y: scroll;
+        height: calc(100vh - 45px);
         & #calendar-header {
             margin: 10px 0 20px;
             position: relative;
@@ -284,13 +284,13 @@ a {
             }
         }
         & .calendar-main {
-            & .months-container {
+            margin-top: 30px;
+            & .year-container {
                 display: grid;
                 grid-template-rows:repeat(3, 1fr);
                 grid-template-columns: repeat(4, 1fr);
                 row-gap: 15px;
-                & .month-container {
-                    // width: 300px;
+                & .month-table {
                     margin: 0 auto;
                     & .month {
                         padding-left: 7px;
@@ -299,13 +299,13 @@ a {
                         font-weight: normal;
                         text-align: left;
                     }
-                    & .weeks {
+                    & .day-of-the-weeks {
                         margin-bottom: 5px;
-                       & .week {
+                       & th {
                             text-align: center;
                             font-size: 18px;
                             font-weight: normal;
-                            color: #9D9D9D;
+                            color: #797979;
                             position: relative;
                             &::after {
                                 content: "";
@@ -319,7 +319,7 @@ a {
                             }
                        } 
                     }
-                    & .days {
+                    & .week {
                         & .day {
                             width: 45px;
                             height: 33px;
@@ -327,26 +327,113 @@ a {
                             font-size: 18px;
                             line-height: 33px;
                         }
+                        & .disabled {
+                            color: rgb(182, 182, 182);
+                        }
                     }
                 }
             }
         }
     }
-}
+    & #month {
+        & #calendar-header {
+            margin: 10px 0 20px;
+            position: relative;
+            & .calendar-title {
+                text-align: center;
+            }
+            & #calendar-pagination {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-right: 20px;
+                & .pagination {
+                    display: flex;
+                    & li {
+                        box-shadow: 0.4px 0.4px 1.5px #acacac;
+                        border-radius: 4px;
+                        cursor: pointer;
+                        &:not(:nth-child(2)) {
+                            width: 20px; 
+                            height: 20px;
+                            text-align: center;
+                        }
+                        &:nth-child(2) {
+                            padding: 0 15px;
+                        }
+                        & button {
+                            background: #fff;
+                            border: none;
+                            & a {
+                                color: rgb(0, 0, 0);
+                                line-height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        & #calendar {
+            & .month-container {
+                & .month-table {
+                    border-collapse: collapse;
+                    & .day-of-the-weeks {
+                        & th {
+                            margin-bottom: 5px;
+                            height: fit-content;
+                            text-align: center;
+                            font-size: 18px;
+                            font-weight: normal;
+                            color: #9D9D9D;
+                        }
+                    }
+                    & .week {
+                        & td {
+                            width: calc(100vw - 220px);
+                            height: calc((100vh - 145px) / 6);
+                            text-align: center;
+                            font-size: 18px;
+                            border:solid #d1d1d1;
+                            border-width: 1px 1px 0 0;
+                            vertical-align: top;
+                            & .day {
+                                margin-top: 10px;
+                            }
+                            &.sun {
+                                background: rgb(240, 240, 240);
+                            }
+                            &.sat {
+                                background: rgb(240, 240, 240);
+                            }
+                            &.disabled {
+                                color: rgb(182, 182, 182);
+                            }
+                        }
+                    }
+                    &:last-child {
+                        border-bottom:solid 1px #d1d1d1;
+                    }
+                }
+            }
+        }
+    }
 
-.today {
-    position: relative;
-    color: #fff;
-    &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-51%, -55%);
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: #ff0000;
-        z-index: -1;
+    & .today {
+        position: relative;
+        color: #fff;
+        z-index: 100;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-51%, -55%);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #ff0000;
+            z-index: -1;
+        }
     }
 }
+

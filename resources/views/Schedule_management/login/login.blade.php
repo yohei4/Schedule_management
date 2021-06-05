@@ -22,7 +22,7 @@
                 <div class="input-wrap">
                     <i_right class="fas fa-key"></i_right>
                     <input id="password" name="password" type="password" placeholder="パスワード">
-                    <i class="fas fa-eye"></i>
+                    <button id="password-view__btn"><i class="fas fa-eye"></i></button>
                 </div>
             </div>
             @if($errors->has('email'))

@@ -1,5 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
 * {
@@ -304,52 +305,67 @@ a {
   color: #C1C1C1;
 }
 
-.calendar-view #year #calendar-header {
+.calendar-view #year {
+  overflow: scroll;
+  height: calc(100vh - 45px);
+}
+
+.calendar-view #year .calendar-header__fixed {
+  position: fixed;
+  width: calc(100% - 220px);
+  background-color: #fff;
+}
+
+.calendar-view #year .calendar-header__fixed #calendar-header {
   margin: 10px 0 20px;
   position: relative;
 }
 
-.calendar-view #year #calendar-header .calendar-title {
+.calendar-view #year .calendar-header__fixed #calendar-header .calendar-title {
   text-align: center;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination {
   position: absolute;
   top: 0;
   right: 0;
   margin-right: 20px;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination li {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination li {
   -webkit-box-shadow: 0.4px 0.4px 1.5px #acacac;
           box-shadow: 0.4px 0.4px 1.5px #acacac;
   border-radius: 4px;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination li:not(:nth-child(2)) {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination li:not(:nth-child(2)) {
   width: 20px;
   height: 20px;
   text-align: center;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination li:nth-child(2) {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination li:nth-child(2) {
   padding: 0 15px;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination li button {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination li button {
   background: #fff;
   border: none;
 }
 
-.calendar-view #year #calendar-header #calendar-pagination .pagination li button a {
+.calendar-view #year .calendar-header__fixed #calendar-header #calendar-pagination .pagination li button a {
   color: black;
   line-height: 20px;
+}
+
+.calendar-view #year .calendar-main {
+  margin-top: 66px;
 }
 
 .calendar-view #year .calendar-main .months-container {
@@ -408,6 +424,86 @@ a {
 
 .calendar-view #year .calendar-main .months-container .month-container .weeks td.day-last-next__month .day {
   color: #b6b6b6;
+}
+
+.calendar-view #month #calendar-header {
+  margin: 10px 0 20px;
+  position: relative;
+}
+
+.calendar-view #month #calendar-header .calendar-title {
+  text-align: center;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 20px;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination li {
+  -webkit-box-shadow: 0.4px 0.4px 1.5px #acacac;
+          box-shadow: 0.4px 0.4px 1.5px #acacac;
+  border-radius: 4px;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination li:not(:nth-child(2)) {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination li:nth-child(2) {
+  padding: 0 15px;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination li button {
+  background: #fff;
+  border: none;
+}
+
+.calendar-view #month #calendar-header #calendar-pagination .pagination li button a {
+  color: black;
+  line-height: 20px;
+}
+
+.calendar-view #month .calendar-main .month-container .month-table {
+  border-collapse: collapse;
+}
+
+.calendar-view #month .calendar-main .month-container .month-table tr.weeks {
+  margin-bottom: 5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.calendar-view #month .calendar-main .month-container .month-table tr.weeks .week {
+  text-align: center;
+  font-size: 18px;
+  font-weight: normal;
+  color: #9D9D9D;
+}
+
+.calendar-view #month .calendar-main .month-container .month-table tr.days .day {
+  text-align: center;
+  font-size: 22px;
+  width: calc(100vw - 220px);
+  height: calc((100vh - 15px) / 7);
+  border: solid #707070;
+  border-width: 1px 1px 0 0;
+  vertical-align: top;
+}
+
+.calendar-view #month .calendar-main .month-container .month-table tr:last-child {
+  border-bottom: solid 1px #707070;
 }
 
 .today {

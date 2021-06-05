@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
-    <!-- <link href="/css/app.css" rel="stylesheet"> -->
-    <!-- <script src="/js/app.js"></script> -->
     <link rel="stylesheet" href="{{ asset('./css/login/style.css') }}">
 </head>
 <body>

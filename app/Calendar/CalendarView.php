@@ -19,51 +19,100 @@ class CalendarView {
     public function getYear() {
         // dd($this->carbon);
         return $this->carbon->format('Y');
-    }
 
+    }
+    
+    /**
+	 * 年
+	 */
+    public function getMonth() {
+        // dd($this->carbon);
+        return $this->carbon->format('Y/m');
+    }
+    
     /**
 	 * カレンダーを出力する
 	 */
-	function render(){
-        $html = [];
-		$months = $this->getmonths();
-        foreach($months as $month) {
-            // dd($month);
-            $html[] = '<table id="'. $month->getClassName() . '" class="month-container">';
-            $html[] = '<caption class="month">' . $month->format('n月') . '</caption>';
-            $html[] = '<thead>';
-            $html[] = ' <tr class="day-of-the-weeks">';
-            $html[] = '<th>日</th>';
-            $html[] = '<th>月</th>';
-            $html[] = '<th>火</th>';
-            $html[] = '<th>水</th>';
-            $html[] = '<th>木</th>';
-            $html[] = '<th>金</th>';
-            $html[] = '<th>土</th>';
-            $html[] = '</tr>';
-            $html[] = '</thead>';
-            $html[] = '<tbody>';
-            $weeks = $month->getweeks();
-            foreach($weeks as $week){
-                $html[] = '<tr class="weeks '.$week->getClassName().'">';
-                $days = $week->getDays();
-                // dd($days);
-                foreach($days as $day){
-                    $html[] = '<td class=" '.$day->getClassName().'">';
-                    $html[] = $day->render();
-                    $html[] = '</td>';
-                }
+	function render(string $string) {
+        if($string === "year") {
+            $html = [];
+            $months = $this->getmonths();
+            foreach($months as $month) {
+                $html[] = '<table id="'. $month->getClassName() . '" class="month-container">';
+                $html[] = '<caption class="month">' . $month->format('n月') . '</caption>';
+                $html[] = '<thead>';
+                $html[] = ' <tr class="day-of-the-weeks">';
+                $html[] = '<th>日</th>';
+                $html[] = '<th>月</th>';
+                $html[] = '<th>火</th>';
+                $html[] = '<th>水</th>';
+                $html[] = '<th>木</th>';
+                $html[] = '<th>金</th>';
+                $html[] = '<th>土</th>';
                 $html[] = '</tr>';
+                $html[] = '</thead>';
+                $html[] = '<tbody>';
+                $weeks = $month->getweeks();
+                foreach($weeks as $week){
+                    $html[] = '<tr class="weeks '.$week->getClassName().'">';
+                    $days = $week->getDays();
+                    // dd($days);
+                    foreach($days as $day){
+                        $html[] = '<td class=" '.$day->getClassName().'">';
+                        $html[] = $day->render();
+                        $html[] = '</td>';
+                    }
+                    $html[] = '</tr>';
+                }
+                $html[] = '</tbody>';
+                $html[] = '</table>';
             }
-            $html[] = '</tbody>';
-		    $html[] = '</table>';
+            $html[] = '</div>';
+            return implode("", $html);
+        } elseif( $string === "month") {
+                $html = [];
+                $months = $this->getmonths();
+                foreach($months as $month) {
+                $html[] = '<table id="'. $month->getClassName() . '" class="month-table" cellSpacing=0>';
+                $html[] = '<thead>';
+                $html[] = '<tr class="day-of-the-weeks">';
+                $html[] = '<th>日</th>';
+                $html[] = '<th>月</th>';
+                $html[] = '<th>火</th>';
+                $html[] = '<th>水</th>';
+                $html[] = '<th>木</th>';
+                $html[] = '<th>金</th>';
+                $html[] = '<th>土</th>';
+                $html[] = '</tr>';
+                $html[] = '</thead>';
+                $html[] = '<tbody>';
+                $weeks = $month->getweeks();
+                foreach($weeks as $week){
+                    $html[] = '<tr class="weeks '.$week->getClassName().'">';
+                    $days = $week->getDays();
+                    // dd($days);
+                    foreach($days as $day){
+                        $html[] = '<td class=" '.$day->getClassName().'">';
+                        $html[] = $day->render();
+                        $html[] = '</td>';
+                    }
+                    $html[] = '</tr>';
+                }
+                $html[] = '</tbody>';
+                $html[] = '</table>';
+            }
+            $html[] = '</div>';
+            return implode("", $html);
         }
-		$html[] = '</div>';
-		return implode("", $html);
 	}
 
-    protected function getMonths() {
+    protected function getYears(int $int) {
         $years = [];
+
+    }
+
+    protected function getMonths() {
+        $months = [];
 
         //初月
         $firstDay = $this->carbon->copy()->firstOfYear();
