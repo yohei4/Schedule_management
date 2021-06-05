@@ -12,6 +12,7 @@ class Schedule extends Model
     protected $table = 'schedules';
 
     protected $fillable = [
+        'user_id',
         'title',
         'place',
         'checkbox',

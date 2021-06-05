@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Schedule;
+use Illuminate\Support\Facades\Auth;
 
 class ScheduleController extends Controller
 {
@@ -11,10 +13,14 @@ class ScheduleController extends Controller
     public function schedule_store(Request $request)
     {
       $inputs = $request->all();
+      $inputs["user_id"] = Auth::user()->id;
+
       try {
-           $this->create($inputs);
+           Schedule::create($inputs);
             \DB::commit();
             } catch(\Throwable $e) {
+              dd($e);
+              exit;
             \DB::rollback();
             abort(500);
           }
@@ -26,7 +32,7 @@ class ScheduleController extends Controller
     {
     //resoucesにarticlesディレクトリがあればその中身を開き
     //indexがつくファイルがあれば返す
-    $schedulea = Schedule::all();
+    $schedules = Schedule::all();
 
     return view('schedule_management.home', ['schedules' => $schedules]); 
     }
