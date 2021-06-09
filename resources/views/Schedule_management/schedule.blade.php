@@ -20,10 +20,10 @@
               <input type="checkbox" name="checkbox">
             </p>
             <p>開始：
-              <input type="date" name="start" value="2021-01-01"><input type="time"  name="start" value="10:00">
+              <input type="date" name="start" value="2021-01-01"><input type="time"  name="start_time" value="10:00">
             </p>
             <p>終了：
-              <input type="date" name="end" value="2021-01-01"><input type="time" name="end" value="10:00">
+              <input type="date" name="end" value="2021-01-01"><input type="time" name="end_time" value="10:00">
             </p>
           </div>
           <div class="btn">

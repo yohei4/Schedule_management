@@ -24,10 +24,14 @@ class ScheduleRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id' => 'required',
             'title' => 'required',
             'place' => 'required',
+            'checkbox' => 'required',
             'start' => 'required',
+            'start_time' => 'required',
             'end' => 'required',
+            'end_time' => 'required',
         ];
     }
 }
