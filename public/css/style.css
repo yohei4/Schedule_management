@@ -490,4 +490,10 @@ footer p {
   margin-right: 223px;
 }
 
+/** チェックONなら表示 */
+input:checked ~ .datetime{
+  display: block;
+}
+
+
 /*# sourceMappingURL=style.css.map */

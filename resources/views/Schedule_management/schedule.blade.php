@@ -14,17 +14,28 @@
       <div class="modal">
           <input class="title" type="text" name="title" style="border:none" placeholder="新規イベント名">
           <input class="place" type="text" name="place" style="border:none" placeholder="場所を追加">
+
+      @if($errors->has('title'))
+        <p class="error">※{{ $errors->first('title') }}</p>
+      @endif
+      @if($errors->has('place'))
+        <p class="error">※{{ $errors->first('place') }}</p>
+      @endif
+
           <div class="underline"></div>
           <div class="center">
             <p class="endday"><span>終日：</span>
-              <input type="checkbox" name="checkbox">
+            <input type="hidden" name="checkbox" value="0">
+              <input type="checkbox" name="checkbox" value="1" onclick="checkdiv(this,'checkBox')">
             </p>
-            <p>開始：
-              <input type="date" name="start" value="2021-01-01"><input type="time"  name="start_time" value="10:00">
-            </p>
-            <p>終了：
-              <input type="date" name="end" value="2021-01-01"><input type="time" name="end_time" value="10:00">
-            </p>
+            <div id="checkBox">
+              <p>開始：
+                <input type="date" name="start" value="2021-01-01"><input type="time"  name="start_time" value="10:00">
+              </p>
+              <p>終了：
+                <input type="date" name="end" value="2021-01-01"><input type="time" name="end_time" value="10:00">
+              </p>
+            </div>
           </div>
           <div class="btn">
             <button type="submit" form="submit">登録</button>
@@ -33,5 +44,9 @@
       </div>
     </form>
   </div>
+
+<script src="./js/schedule.js"></script>
+
+
 </body>
 </html>

@@ -25,8 +25,8 @@ class ScheduleRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'title' => 'required',
-            'place' => 'required',
+            'title' => 'required | max:30',
+            'place' => 'required | max:15',
             'checkbox' => 'required',
             'start' => 'required',
             'start_time' => 'required',
