@@ -473,7 +473,18 @@ a {
   border-collapse: collapse;
 }
 
-.calendar-view #month #calendar .month-container .month-table .day-of-the-weeks th {
+.calendar-view #month #calendar .month-container .month-table .day-of-the-weeks-outer {
+  width: 100%;
+}
+
+.calendar-view #month #calendar .month-container .month-table .day-of-the-weeks-outer .day-of-the-weeks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.calendar-view #month #calendar .month-container .month-table .day-of-the-weeks-outer .day-of-the-weeks div {
+  width: 100%;
   margin-bottom: 5px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -484,29 +495,25 @@ a {
   color: #9D9D9D;
 }
 
-.calendar-view #month #calendar .month-container .month-table .week td {
-  width: calc(100vw - 220px);
-  height: calc((100vh - 145px) / 6);
-  text-align: center;
-  font-size: 18px;
-  border: solid #d1d1d1;
-  border-width: 1px 1px 0 0;
-  vertical-align: top;
+.calendar-view #month #calendar .month-container .month-table .week .date-outer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.calendar-view #month #calendar .month-container .month-table .week td .day {
+.calendar-view #month #calendar .month-container .month-table .week .date-outer div .day {
   margin-top: 10px;
 }
 
-.calendar-view #month #calendar .month-container .month-table .week td.sun {
+.calendar-view #month #calendar .month-container .month-table .week .date-outer div.sun {
   background: #f0f0f0;
 }
 
-.calendar-view #month #calendar .month-container .month-table .week td.sat {
+.calendar-view #month #calendar .month-container .month-table .week .date-outer div.sat {
   background: #f0f0f0;
 }
 
-.calendar-view #month #calendar .month-container .month-table .week td.disabled {
+.calendar-view #month #calendar .month-container .month-table .week .date-outer div.disabled {
   color: #b6b6b6;
 }
 

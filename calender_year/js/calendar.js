@@ -1,154 +1,152 @@
-class calendar {
-    constructor(string){
+class Calendar {
+    constructor(string, date = null){
         this.string = string;
         //今日
         this.today = new Date();
+        //現在見ているカレンダーの日付を取得するために使う
+        this.getDate;
+        //class内に入ってくる日付
+        this.setDate = date;
         // 月末だとずれる可能性があるため、1日固定で取得
-        this.showDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        this.showDate = this.isset(date) ? new Date(this.today.getFullYear(), this.today.getMonth(), 1) : this.setDate;
         //週の配列
         this.week = ["日", "月", "火", "水", "木", "金", "土"];
         //週の英語の配列
         this.week_en = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+        //表示するカレンダーを取得
+        this.calendar = document.querySelector('#calendar');
     }
 
     // 前の月表示
     todayBtn(){
-        this.showDate = new Date();
-        this.showProcess(today, this.string);
+        this.getDate = this.showDate = new Date();
+        this.showProcess(this.showDate, this.string);
     }
 
     // 前の月表示
     prev(){
-        this.showDate.setMonth(showDate.getMonth() - 1);
-        this.showProcess(showDate, this.string);
+        if(this.string === "month") {
+            this.showDate.setMonth(this.showDate.getMonth() - 1);
+        }
+        if(this.string === "year") {
+            this.showDate.setFullYear(this.showDate.getFullYear() - 1);
+        }
+        this.getDate = this.showDate;
+        this.showProcess(this.showDate, this.string);
     }
 
     // 次の月表示
     next(){
-        this.showDate.setMonth(showDate.getMonth() + 1);
-        this.showProcess(showDate, this.string);
+        if(this.string === "month") {
+            this.showDate.setMonth(this.showDate.getMonth() + 1);
+        }
+        if(this.string === "year") {
+            this.showDate.setFullYear(this.showDate.getFullYear() + 1);
+        }
+        this.getDate = this.showDate;
+        this.showProcess(this.showDate, this.string);
     }
+    
     // カレンダー表示
-    showProcess(date, string) {
-        const year = date.getFullYear();
+    showProcess(date = this.today, string = this.string) {
+        let year = date.getFullYear();
         let month = date.getMonth();
         let id = document.querySelector('.calendar-view>div');
         //id名を変更
         id.setAttribute('id', string);
         let h1 = document.querySelector('.calendar-title>h1');
-        const calendarView = document.querySelector('#calendar');
+        let calendar = '<div class="' + string + '-container">';
         if(string === "month") {
             h1.innerHTML = year + "年" + (month + 1) + "月";
-            const calendar = createProcess(year, month, string);
-            calendarView.innerHTML = calendar;
+            calendar += this.createProcess(year, month, string);
+            this.calendar.innerHTML = calendar;
         }
         if(string === "year") {
             h1.innerHTML = year + "年";
-            let calendar = '<div class="' + string + '-container">';
             for(let i = 0; i < 12; i++) {
                 month = i;
-                calendar += createProcess(year, month, string);
+                calendar += this.createProcess(year, month, string);
             }
-            calendarView.innerHTML = calendar;
+            this.calendar.innerHTML = calendar;
         }
     }
     // カレンダー作成
     createProcess(year, month, string) {
         if (string === "month") {
-                // 曜日
-            var calendar = '<div class="' + string + '-container">';
-            calendar += '<table id="' + (month + 1) + '" class="month-table" cellSpacing=0>';
-            calendar += '<thead>';
-            calendar += '<tr class="day-of-the-weeks">';
-        for (var i = 0; i < week.length; i++) {
-            calendar += "<th>" + week[i] + "</th>";
+            // 曜日
+            let calendar = '<table id="' + (month + 1) + '" class="month-table" cellSpacing="0">';
+            calendar += this.createMonth(year, month);
+            return calendar;
         }
-            calendar += "</tr>";
-            calendar += "</thead>";
-            var count = 0;
-            var startDayOfWeek = new Date(year, month, 1).getDay();
-            var endDate = new Date(year, month + 1, 0).getDate();
-            var lastMonthEndDate = new Date(year, month, 0).getDate();
-            var row = 6;
+        if (string === "year") {
+            // 曜日
+            let calendar = `<table id="${month + 1}" class="month-table">`;
+            calendar += '<caption class="month">' + (month + 1) + '月</caption>';
+            calendar += this.createMonth(year, month);
+            return calendar;
+        }
+    }
+
+    createMonth(year, month){
+        let calendar = '<thead>';
+        calendar += '<tr class="day-of-the-weeks">';
+        for (let i = 0; i < this.week.length; i++) {
+            calendar += "<th>" + this.week[i] + "</th>";
+        }
+        calendar += "</tr>";
+        calendar += "</thead>";
+        let count = 0;
+        const startDayOfWeek = new Date(year, month, 1).getDay();
+        const endDate = new Date(year, month + 1, 0).getDate();
+        const lastMonthEndDate = new Date(year, month, 0).getDate();
+        const row = 6;
         // 1行ずつ設定
-        for (var i = 0; i < row; i++) {
+        for (let i = 0; i < row; i++) {
             calendar += '<tr class="week">';
             // 1colum単位で設定
-            for (var j = 0; j < week.length; j++) {
+            for (var j = 0; j < this.week.length; j++) {
                 if (i == 0 && j < startDayOfWeek) {
                     // 1行目で1日まで先月の日付を設定
                     let dayOfWeek = new Date(year, month - 1, lastMonthEndDate - startDayOfWeek + j + 1).getDay();
-                    calendar += '<td class="disabled ' + week_en[dayOfWeek] + '">' + '<p class="day">' + (lastMonthEndDate - startDayOfWeek + j + 1) + '</p>' + '</td>';
+                    calendar += '<td class="disabled ' + this.week_en[dayOfWeek] + '">' + '<p class="day">' + (lastMonthEndDate - startDayOfWeek + j + 1) + '</p>' + '</td>';
                 } else if (count >= endDate) {
                     // 最終行で最終日以降、翌月の日付を設定
                     count++;
-                    dayOfWeek = new Date(year, month + 1, count - endDate).getDay();
-                    calendar += '<td class="disabled ' + week_en[dayOfWeek] + '">' + '<p class="day">' + (count - endDate) + '</p>' + '</td>';
+                    let dayOfWeek = new Date(year, month + 1, count - endDate).getDay();
+                    calendar += '<td class="disabled ' + this.week_en[dayOfWeek] + '">' + '<p class="day">' + (count - endDate) + '</p>' + '</td>';
                 } else {
                     // 当月の日付を曜日に照らし合わせて設定
                     count++;
-                    if(year == today.getFullYear()
-                    && month == (today.getMonth())
-                    && count == today.getDate()){
-                        dayOfWeek = new Date(year, month, count).getDay();
-                        calendar += '<td class="' + week_en[dayOfWeek] + '">' + '<p class="today day">' + count + '</p>' + '</td>';
+                    if(year == this.today.getFullYear()
+                    && month == (this.today.getMonth())
+                    && count == this.today.getDate()){
+                        let dayOfWeek = new Date(year, month, count).getDay();
+                        calendar += '<td class="' + this.week_en[dayOfWeek] + '">' + '<p class="today day">' + count + '</p>' + '</td>';
                     } else {
-                        dayOfWeek = new Date(year, month, count).getDay();
-                        calendar += '<td class="' + week_en[dayOfWeek] + '">' + '<p class="day">' + count + '</p>' + '</td>';
+                        let dayOfWeek = new Date(year, month, count).getDay();
+                        calendar += '<td class="' + this.week_en[dayOfWeek] + '">' + '<p class="day">' + count + '</p>' + '</td>';
                     }
                 }
             }
             calendar += "</tr>";
         }
         return calendar;
+    }
+    //今現在開いているカレンダーの日付を取得
+    getViewDate() {
+        return this.getDate;
+    }
+    //現在見ているカレンダーのモードを取得
+    getMode() {
+        return this.string;
+    }
+    //null判定
+    isset(data) {
+        if(data !== null) {
+            return false;
         }
-        if (string === "year") {
-        // 曜日
-            var calendar = `<table id="${month + 1}" class="month-table">`;
-            calendar += '<caption class="month">' + (month + 1) + '月</caption>';
-            calendar += '<thead>';
-            calendar += '<tr class="day-of-the-weeks">';
-            for (var j = 0; j < week.length; j++) {
-                calendar += "<th>" + week[j] + "</th>";
-            }
-                calendar += "</tr>";
-                calendar += "</thead>";
-                var count = 0;
-                var startDayOfWeek = new Date(year, month, 1).getDay();
-                var endDate = new Date(year, month + 1, 0).getDate();
-                var lastMonthEndDate = new Date(year, month, 0).getDate();
-                var row = 6;
-            // 1行ずつ設定
-            for (var j = 0; j < row; j++) {
-                calendar += '<tr class="week">';
-                // 1colum単位で設定
-                for (var k = 0; k < week.length; k++) {
-                    if (j == 0 && k < startDayOfWeek) {
-                        // 1行目で1日まで先月の日付を設定
-                        let dayOfWeek = new Date(year, month - 1, lastMonthEndDate - startDayOfWeek + k + 1).getDay();
-                        calendar += '<td class="disabled ' + week_en[dayOfWeek] + '">' + '<p class="day">' + (lastMonthEndDate - startDayOfWeek + k + 1) + '</p>' + '</td>';
-                    } else if (count >= endDate) {
-                        // 最終行で最終日以降、翌月の日付を設定
-                        count++;
-                        dayOfWeek = new Date(year, month + 1, count - endDate).getDay();
-                        calendar += '<td class="disabled ' + week_en[dayOfWeek] + '">' + '<p class="day">' + (count - endDate) + '</p>' + '</td>';
-                    } else {
-                        // 当月の日付を曜日に照らし合わせて設定
-                        count++;
-                        if(year == today.getFullYear()
-                        && month == (today.getMonth())
-                        && count == today.getDate()){
-                            dayOfWeek = new Date(year, month, count).getDay();
-                            calendar += '<td class="' + week_en[dayOfWeek] + '">' + '<p class="today day">' + count + '</p>' + '</td>';
-                        } else {
-                            dayOfWeek = new Date(year, month, count).getDay();
-                            calendar += '<td class="' + week_en[dayOfWeek] + '">' + '<p class="day">' + count + '</p>' + '</td>';
-                        }
-                    }
-                }
-            calendar += "</tr>";
+        else {
+            return true;
         }
-        return calendar;
-        }
-}
+    }
 }

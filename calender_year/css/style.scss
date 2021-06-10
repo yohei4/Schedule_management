@@ -377,36 +377,44 @@ a {
             & .month-container {
                 & .month-table {
                     border-collapse: collapse;
-                    & .day-of-the-weeks {
-                        & th {
-                            margin-bottom: 5px;
-                            height: fit-content;
-                            text-align: center;
-                            font-size: 18px;
-                            font-weight: normal;
-                            color: #9D9D9D;
+                    & .day-of-the-weeks-outer {
+                        width: 100%;
+                        & .day-of-the-weeks {
+                            display: flex;
+                            & div {
+                                width: 100%;
+                                margin-bottom: 5px;
+                                height: fit-content;
+                                text-align: center;
+                                font-size: 18px;
+                                font-weight: normal;
+                                color: #9D9D9D;
+                            }
                         }
                     }
                     & .week {
-                        & td {
-                            width: calc(100vw - 220px);
-                            height: calc((100vh - 145px) / 6);
-                            text-align: center;
-                            font-size: 18px;
-                            border:solid #d1d1d1;
-                            border-width: 1px 1px 0 0;
-                            vertical-align: top;
-                            & .day {
-                                margin-top: 10px;
-                            }
-                            &.sun {
-                                background: rgb(240, 240, 240);
-                            }
-                            &.sat {
-                                background: rgb(240, 240, 240);
-                            }
-                            &.disabled {
-                                color: rgb(182, 182, 182);
+                        & .date-outer {
+                            display: flex;
+                            // width: calc(100vw - 220px);
+                            // height: calc((100vh - 145px) / 6);
+                            // text-align: center;
+                            // font-size: 18px;
+                            // border:solid #d1d1d1;
+                            // border-width: 1px 1px 0 0;
+                            // vertical-align: top;
+                            & div {
+                                & .day {
+                                    margin-top: 10px;
+                                }
+                                &.sun {
+                                    background: rgb(240, 240, 240);
+                                }
+                                &.sat {
+                                    background: rgb(240, 240, 240);
+                                }
+                                &.disabled {
+                                    color: rgb(182, 182, 182);
+                                }
                             }
                         }
                     }
