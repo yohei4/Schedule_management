@@ -16,10 +16,9 @@ class Schedule extends Model
         'title',
         'place',
         'checkbox',
+        'endday',
         'start',
-        'start_time',
         'end',
-        'end_time',
     ];
 
 }

@@ -27,14 +27,15 @@
             <p class="endday"><span>終日：</span>
             <input type="hidden" name="checkbox" value="0">
               <input type="checkbox" name="checkbox" value="1" onclick="checkdiv(this,'checkBox')">
+              <input type="date" name="endday" value="2021-01-01">
             </p>
             <div id="checkBox">
               <p>開始：
-                <input type="date" name="start" value="2021-01-01"><input type="time"  name="start_time" value="10:00">
-              </p>
-              <p>終了：
-                <input type="date" name="end" value="2021-01-01"><input type="time" name="end_time" value="10:00">
-              </p>
+                <input type="datetime-local" name="start" value="2021-01-01T10:00">
+                </p>
+                <p>終了：
+                  <input type="datetime-local" name="end" value="2021-01-01T10:00">
+                </p>
             </div>
           </div>
           <div class="btn">
