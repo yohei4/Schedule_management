@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginFormRequest extends FormRequest
+class ScheduleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,14 @@ class LoginFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required',
-            'password' => 'required | min: 6'
+            'user_id' => 'required',
+            'title' => 'required | max:30',
+            'place' => 'required | max:15',
+            'checkbox' => 'required',
+            'start' => 'required',
+            'start_time' => 'required',
+            'end' => 'required',
+            'end_time' => 'required',
         ];
     }
 }

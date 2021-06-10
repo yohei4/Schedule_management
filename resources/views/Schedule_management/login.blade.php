@@ -28,8 +28,8 @@
                 <div class="password-outer">
                     <div class="input-wrap">
                       <i_right class="fas fa-key"></i_right>
-                        <input id="password" name="password" type="password" placeholder="パスワード">
-                        <i class="fas fa-eye"></i>
+                        <input id="password" name="password" type="password" class="font-awesome" placeholder="パスワード">
+                        <button id="password-view__btn"><i class="fas fa-eye"></i></button>
                     </div>
                 </div>
                 @if($errors->has('email'))
@@ -57,5 +57,6 @@
         </div>
     </main>
     @include('schedule_management.footer')
+    <script src="./js/password_view.js"></script>
 </body>
 </html>

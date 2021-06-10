@@ -9,6 +9,11 @@
 <body>
   <div class="container">
     <div class="mt-5">
+      @if (session('login_success'))
+      <div>
+        {{ session('login_success') }}
+      </div>
+      @endif
       <h3>プロフィール</h3>
         <ul>
           <li>名前：{{ Auth::user()->name }}</li>
