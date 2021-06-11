@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>カレンダー(年)</title>
     <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('./css/calendar/style.css') }}">
+    <link rel="stylesheet" href="./css/calendar/style.css">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                 <li class="menu-item"><button>{{ Auth::user()->name }}</button></li>
             </ul>
         </aside>
-        <main id="calendar">
+        <main id="calendar-main">
             <div id="header-outer">
                 <div id="header">
                     <div id="new_event__btn">
@@ -32,10 +32,10 @@
                     </div>
                     <div id="calendar-change__btn__border">
                         <div class="btn-wrapper">
-                            <button id="day_btn" class="calendar-change__btn">日</button>
-                            <button id="week_btn" class="calendar-change__btn">週</button>
-                            <button id="month_btn" class="calendar-change__btn">月</button>
-                            <button id="year_btn" class="calendar-change__btn">年</button>
+                            <button id="day_btn" class="calendar-change__btn" value="day">日</button>
+                            <button id="week_btn" class="calendar-change__btn" value="week">週</button>
+                            <button id="month_btn" class="calendar-change__btn" value="month">月</button>
+                            <button id="year_btn" class="calendar-change__btn" value="year">年</button>
                         </div>
                     </div>
                     <div id="search">
@@ -49,33 +49,25 @@
                 </div>
             </div>
             <div class="calendar-view">
-                <div id="year">
-                    <div class="calendar-header__fixed">
-                        <div id="calendar-header">
-                            <div class="calendar-title">
-                                <h1>
-                                {{ $calendar->getYear() }}
-                                </h1>
-                            </div>
-                            <div id="calendar-pagination">
-                                <ul class="pagination">
-                                    <li class="prev-btn"><button><a href="#">&lt;</a></button></li>
-                                    <li class="today-btn"><button><a href="#">今日</a></button></li>
-                                    <li class="next-btn"><button><a href="#">&gt;</a></button></li>
-                                </ul>
-                            </div>
+                <div>
+                    <div id="calendar-header">
+                        <div class="calendar-title">
+                            <h1></h1>
+                        </div>
+                        <div id="calendar-pagination">
+                            <ul class="pagination">
+                                <li class="prev-btn"><button><a href="#">&lt;</a></button></li>
+                                <li class="today-btn"><button><a href="#">今日</a></button></li>
+                                <li class="next-btn"><button><a href="#">&gt;</a></button></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="calendar-main">
-                        <div class="months-container">
-                        {!! $calendar->render("year") !!}
-                        </div>
-                    </div>
+                    <div id="calendar" class="calendar-main"></div>
                 </div>
             </div>
         </main>
     </div>
+    <script src="./js/Calendar.js"></script>
     <script src="./js/main.js"></script>
 </body>
-
 </html>
