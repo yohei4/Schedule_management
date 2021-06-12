@@ -46,7 +46,3 @@ Route::get('account', function () {
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
 
 Route::get('home', [CalendarController::class, 'show'])->name('home');
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
