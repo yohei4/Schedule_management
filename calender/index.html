@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー(年)</title>
+    <link href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside id="side-bar">
+            <div id="group-name">
+                <h2>グループ名</h2>
+                <div class="arrow"></div>
+            </div>
+            <ul id="menu">
+                <li class="menu-item"><button>カレンダー</button></li>
+                <li class="menu-item"><button>グループ一覧</button></li>
+                <li class="menu-item"><button>ユーザー名</button></li>
+            </ul>
+        </aside>
+        <main id="calendar-main">
+            <div id="header-outer">
+                <div id="header">
+                    <div id="new_event__btn">
+                        <P>新規イベントの作成</P>
+                        <div class="plus-icon"></div>
+                    </div>
+                    <div id="calendar-change__btn__border">
+                        <div class="btn-wrapper">
+                            <button id="day_btn" class="calendar-change__btn" value="day">日</button>
+                            <button id="week_btn" class="calendar-change__btn" value="week">週</button>
+                            <button id="month_btn" class="calendar-change__btn" value="month">月</button>
+                            <button id="year_btn" class="calendar-change__btn" value="year">年</button>
+                        </div>
+                    </div>
+                    <div id="search">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <form id="search-form" action="" medivod="GET">
+                            <input class="search-text" type="search" placeholder="検索">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="calendar-view">
+                <div id="month">
+                    <div id="calendar-header">
+                        <div class="calendar-title">
+                            <h1>2021年6月</h1>
+                        </div>
+                        <div id="calendar-pagination">
+                            <ul class="pagination">
+                                <li class="prev-btn"><button><a href="#">&lt;</a></button></li>
+                                <li class="today-btn"><button><a href="#">今日</a></button></li>
+                                <li class="next-btn"><button><a href="#">&gt;</a></button></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="calendar" class="calendar-main">
+                        <div class="month-container">
+                            <div id="6" class="month-table" cellSpacing="0">
+                                <div class="day-of-the-weeks-outer">
+                                    <div class="day-of-the-weeks">
+                                        <div>日</div>
+                                        <div>月</div>
+                                        <div>火</div>
+                                        <div>水</div>
+                                        <div>木</div>
+                                        <div>金</div>
+                                        <div>土</div>
+                                    </div>
+                                </div>
+                                <div class="weeks-outer">
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="disabled sun">
+                                                <p class="day">30</p>
+                                            </div>
+                                            <div class="disabled mon">
+                                                <p class="day">31</p>
+                                            </div>
+                                            <div class="tue">
+                                                <p class="day">1</p>
+                                            </div>
+                                            <div class="wed">
+                                                <p class="day">2</p>
+                                            </div>
+                                            <div class="thu">
+                                                <p class="day">3</p>
+                                            </div>
+                                            <div class="fri">
+                                                <p class="day">4</p>
+                                            </div>
+                                            <div class="sat">
+                                                <p class="day">5</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="sun">
+                                                <p class="day">6</p>
+                                            </div>
+                                            <div class="mon">
+                                                <p class="day">7</p>
+                                            </div>
+                                            <div class="tue">
+                                                <p class="today day">8</p>
+                                            </div>
+                                            <div class="wed">
+                                                <p class="day">9</p>
+                                            </div>
+                                            <div class="thu">
+                                                <p class="day">10</p>
+                                            </div>
+                                            <div class="fri">
+                                                <p class="day">11</p>
+                                            </div>
+                                            <div class="sat">
+                                                <p class="day">12</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="sun">
+                                                <p class="day">13</p>
+                                            </div>
+                                            <div class="mon">
+                                                <p class="day">14</p>
+                                            </div>
+                                            <div class="tue">
+                                                <p class="day">15</p>
+                                            </div>
+                                            <div class="wed">
+                                                <p class="day">16</p>
+                                            </div>
+                                            <div class="thu">
+                                                <p class="day">17</p>
+                                            </div>
+                                            <div class="fri">
+                                                <p class="day">18</p>
+                                            </div>
+                                            <div class="sat">
+                                                <p class="day">19</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="sun">
+                                                <p class="day">20</p>
+                                            </div>
+                                            <div class="mon">
+                                                <p class="day">21</p>
+                                            </div>
+                                            <div class="tue">
+                                                <p class="day">22</p>
+                                            </div>
+                                            <div class="wed">
+                                                <p class="day">23</p>
+                                            </div>
+                                            <div class="thu">
+                                                <p class="day">24</p>
+                                            </div>
+                                            <div class="fri">
+                                                <p class="day">25</p>
+                                            </div>
+                                            <div class="sat">
+                                                <p class="day">26</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="sun">
+                                                <p class="day">27</p>
+                                            </div>
+                                            <div class="mon">
+                                                <p class="day">28</p>
+                                            </div>
+                                            <div class="tue">
+                                                <p class="day">30</p>
+                                            </div>
+                                            <div class="wed">
+                                                <p class="day">30</p>
+                                            </div>
+                                            <div class="disabled thu">
+                                                <p class="day">1</p>
+                                            </div>
+                                            <div class="disabled fri">
+                                                <p class="day">2</p>
+                                            </div>
+                                            <div class="disabled sat">
+                                                <p class="day">3</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="week">
+                                        <div class="date-outer">
+                                            <div class="disabled sun">
+                                                <p class="day">4</p>
+                                            </div>
+                                            <div class="disabled mon">
+                                                <p class="day">5</p>
+                                            </div>
+                                            <div class="disabled tue">
+                                                <p class="day">6</p>
+                                            </div>
+                                            <div class="disabled wed">
+                                                <p class="day">7</p>
+                                            </div>
+                                            <div class="disabled thu">
+                                                <p class="day">8</p>
+                                            </div>
+                                            <div class="disabled fri">
+                                                <p class="day">9</p>
+                                            </div>
+                                            <div class="disabled sat">
+                                                <p class="day">10</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="./js/calendar.js"></script>
+    <script src="./js/main.js"></script> 
+</body>
+</html>
