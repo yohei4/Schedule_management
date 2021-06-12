@@ -27,8 +27,8 @@
             <div id="header-outer">
                 <div id="header">
                     <div id="new_event__btn">
-                        <P>新規イベントの作成</P>
-                        <div class="plus-icon"></div>
+                        <a href="{{ route('schedule') }}"><P>新規イベントの作成</P>
+                        <div class="plus-icon"></div></a>
                     </div>
                     <div id="calendar-change__btn__border">
                         <div class="btn-wrapper">

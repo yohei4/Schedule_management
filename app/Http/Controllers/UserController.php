@@ -28,9 +28,9 @@ class UserController extends Controller
             return redirect(route('home'))->with('login_success','ログイン成功しました！');
         }
         else {
-            return back()->withErrors([
-                'login_error' => 'メールアドレスかパスワードが間違っています。',
-            ]);
+            return back()->withErrors(
+                'login_error','メールアドレスかパスワードが間違っています。',
+            );
         }
     }
 
@@ -49,7 +49,7 @@ class UserController extends Controller
             \DB::rollback();
             abort(500);
         }
-        return redirect(route('showLogin'));
+        return redirect(route('showLogin'))->with('account_create','アカウント作成されました！');
     }
 
     /**

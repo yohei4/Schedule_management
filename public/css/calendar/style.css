@@ -170,27 +170,30 @@ a {
 }
 
 .wrapper #calendar-main #header-outer #header #new_event__btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   padding: 5px;
   margin-left: 10px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.wrapper #calendar-main #header-outer #header #new_event__btn p {
+.wrapper #calendar-main #header-outer #header #new_event__btn a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.wrapper #calendar-main #header-outer #header #new_event__btn a p {
   width: 100%;
   font-size: 14px;
   color: #9A9A9A;
 }
 
-.wrapper #calendar-main #header-outer #header #new_event__btn .plus-icon {
+.wrapper #calendar-main #header-outer #header #new_event__btn a .plus-icon {
   width: 20px;
   position: relative;
 }
 
-.wrapper #calendar-main #header-outer #header #new_event__btn .plus-icon::after {
+.wrapper #calendar-main #header-outer #header #new_event__btn a .plus-icon::after {
   content: "";
   position: absolute;
   top: 45%;
@@ -203,7 +206,7 @@ a {
   background: #9A9A9A;
 }
 
-.wrapper #calendar-main #header-outer #header #new_event__btn .plus-icon::before {
+.wrapper #calendar-main #header-outer #header #new_event__btn a .plus-icon::before {
   content: "";
   position: absolute;
   top: 45%;

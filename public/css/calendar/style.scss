@@ -135,40 +135,42 @@ a {
                 height: 45px;
                 background-color: #F4F4F4;
                 & #new_event__btn {
-                    display: flex;
                     padding:5px;
                     margin-left: 10px;
                     border-radius: 4px;
                     cursor: pointer;
-                    & p {
-                        width: 100%;
-                        font-size: 14px;
-                        color: #9A9A9A;
-                    }
-                    & .plus-icon {
-                        width: 20px;
-                        position: relative;
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            top: 45%;
-                            left: 50%;
-                            transform: translate(-50%, -50%) rotate(90deg);
-                            z-index: 100;
-                            width: 13px;
-                            height: 1px;
-                            background: #9A9A9A;
+                    & a {
+                        display: flex;
+                        & p {
+                            width: 100%;
+                            font-size: 14px;
+                            color: #9A9A9A;
                         }
-                        &::before {
-                            content: "";
-                            position: absolute;
-                            top: 45%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            z-index: 100;
-                            width: 13px;
-                            height: 1px;
-                            background: #9A9A9A;
+                        & .plus-icon {
+                            width: 20px;
+                            position: relative;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 45%;
+                                left: 50%;
+                                transform: translate(-50%, -50%) rotate(90deg);
+                                z-index: 100;
+                                width: 13px;
+                                height: 1px;
+                                background: #9A9A9A;
+                            }
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 45%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                                z-index: 100;
+                                width: 13px;
+                                height: 1px;
+                                background: #9A9A9A;
+                            }
                         }
                     }
                     &:hover {
