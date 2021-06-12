@@ -426,6 +426,42 @@ footer p {
 /* --------------------------------------- */
 
 
+<<<<<<< HEAD:public/css/style.css
+.underline {
+  margin-top: 5px;
+  border-bottom: 1px solid #333;
+}
+
+.btn {
+  margin-top: 10px;
+  padding:10px;
+}
+
+.btn button {
+  width: 50px;
+  height: 25px;
+}
+
+.center {
+  margin-right: 100px;
+  margin-top: 20px;
+}
+
+.center p {
+  margin: 10px 0;
+  font-size: 17px;
+}
+
+.center .endday {
+  margin-right: 30px;
+}
+
+/** チェックONなら表示 */
+input:checked ~ .datetime{
+  display: block;
+}
+=======
+>>>>>>> 22e5d94c9ac2095b19f2311b3a10c751c6eb0fa1:public/css/login/style.css
 
 
 /*# sourceMappingURL=style.css.map */
