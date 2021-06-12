@@ -425,42 +425,8 @@ footer p {
 
 /* --------------------------------------- */
 
-#container {
-  position: relative;
-}
 
-#container .title{
-  width: 100%;
-  padding: 10px 0;
-  display: block;
-  text-align: left;
-  font-weight: bold;
-  font-size:28px;
-  margin-bottom: 5px;
-}
-
-#container .title::placeholder {
-  color: #b4b4b4;
-}
-
-#container .place {
-  width: 100%;
-  padding: 5px 0;
-  font-size: 17px;
-}
-
-#container .place::placeholder {
-  color: #b4b4b4;
-} 
-
-.modal {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #fff;
-  width: 600px;
-  margin: 100px auto 100px;
-}
-
+<<<<<<< HEAD:public/css/style.css
 .underline {
   margin-top: 5px;
   border-bottom: 1px solid #333;
@@ -494,6 +460,8 @@ footer p {
 input:checked ~ .datetime{
   display: block;
 }
+=======
+>>>>>>> 22e5d94c9ac2095b19f2311b3a10c751c6eb0fa1:public/css/login/style.css
 
 
 /*# sourceMappingURL=style.css.map */

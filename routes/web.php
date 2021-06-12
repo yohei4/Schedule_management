@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CalendarController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScheduleController;
@@ -23,12 +24,12 @@ Route::post('/user/login', [UserController::class, 'login'])->name('login');
 
 //ホーム画面
 Route::get('home', function() {
-    return view('schedule_management.home');
+    return view('schedule_management.calendar.home');
 })->name('home');
 
 //スケジュール入力画面表示
 Route::get('schedule', function() {
-    return view('schedule_management.schedule');
+    return view('schedule_management.calendar.schedule');
 })->name('schedule');
 
 //スケジュール登録
@@ -38,12 +39,10 @@ Route::post('home', [ScheduleController::class, 'schedule_store'])->name('user.s
 
 //アカウント作成画面表示
 Route::get('account', function () {
-    return view('schedule_management.account');
+    return view('schedule_management.login.account');
 })->name('account');
 
 //アカウント作成
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store'); 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('home', [CalendarController::class, 'show'])->name('home');
